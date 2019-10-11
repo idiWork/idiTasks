@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Models="using:idiTasks.Shared.Models"
+    xmlns:Controls="using:idiTasks.Shared.Controls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
@@ -25,28 +26,7 @@
                   Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="Models:ProjectItem">
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" Padding="5">
-                        <TextBox Header="Title"
-                                 PlaceholderText="Insert title here"
-                                 Text="{x:Bind Title, Mode=TwoWay}"
-                                 Width="200"
-                                 Height="70"
-                                 AcceptsReturn="False"
-                                 TextWrapping="NoWrap"
-                                 Margin="5"/>
-                        <ComboBox Header="Type"
-                                  ItemsSource="{x:Bind StatusList}"
-                                  SelectedItem="{x:Bind Status, Mode=TwoWay}"
-                                  Width="150"
-                                  Margin="5, 20"/>
-                        <TextBox Header="Description"
-                                 PlaceholderText="Enter text here"
-                                 Text="{x:Bind Description, Mode=TwoWay}"
-                                 AcceptsReturn="True"
-                                 Height="100"
-                                 Width="200"
-                                 Margin="5"/>
-                    </StackPanel>
+                    <Controls:ProjectItemControl/>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
